@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tässä nettisvulla kerron kuinka rexnon syntyi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background: linear-gradient(120deg, #f6d365, #fda085);
+            color: #333;
+        }
+
+        header {
+            background: #333;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header nav a {
+            color: white;
+            margin: 0 1rem;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        header nav a:hover {
+            text-decoration: underline;
+        }
+
+        .content {
+            padding: 2rem;
+            display: none;
+        }
+
+        .content.active {
+            display: block;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">SuperSivut</div>
+        <nav>
+            <a href="#" data-tab="home">Etusivu</a>
+            <a href="#" data-tab="staff">Staff</a>
+            <a href="#" data-tab="products">Tuotteet</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="content active">
+            <h1>Tervetuloa SuperSivuille!</h1>
+            <p>Tässä on nettisivut kaikilla herkuilla.</p>
+        </section>
+
+        <section id="staff" class="content">
+            <h1>Staff</h1>
+            <p>Täällä on tietoa henkilökunnasta.</p>
+        </section>
+
+        <section id="products" class="content">
+            <h1>Tuotteet</h1>
+            <p>Täällä voit selata tuotteitamme!</p>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2024 rexnon Kaikki oikeudet pidätetään.
+    </footer>
+
+    <script>
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', (event) => {
+                event.preventDefault();
+                document.querySelectorAll('.content').forEach(section => section.classList.remove('active'));
+                document.getElementById(link.dataset.tab).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
